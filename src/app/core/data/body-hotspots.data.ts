@@ -1,0 +1,103 @@
+import { IBodyHotspot } from '../models/body-hotspot.model';
+
+export const BODY_HOTSPOTS_DATA: readonly IBodyHotspot[] = [
+  {
+    id: 'hotspot-cabeca',
+    code: 'CABECAC',
+    label: 'CABEÇA',
+    category: 'BODY_PART',
+    xPercent: 50,
+    yPercent: 10,
+    radiusPx: 32,
+    pastelBg: '#EDF3F7',
+    pastelBorder: '#B9CFDE',
+    pastelSelectedBg: '#DFEBF2',
+    pastelSelectedBorder: '#7EA2BB',
+    ariaLabel: 'Incômodo na Cabeça'
+  },
+  {
+    id: 'hotspot-nariz',
+    code: 'NARIZ',
+    label: 'NARIZ',
+    hintDetail: 'ENTUPIDO',
+    category: 'BODY_PART',
+    xPercent: 50,
+    yPercent: 20,
+    radiusPx: 26,
+    pastelBg: '#F5ECE8',
+    pastelBorder: '#DECBC5',
+    pastelSelectedBg: '#EDE0DC',
+    pastelSelectedBorder: '#BCA49E',
+    ariaLabel: 'Incômodo no Nariz ou Nariz Entupido'
+  },
+  {
+    id: 'hotspot-dentes',
+    code: 'DENTES',
+    label: 'DENTES',
+    category: 'BODY_PART',
+    xPercent: 50,
+    yPercent: 28,
+    radiusPx: 28,
+    pastelBg: '#F5F5ED',
+    pastelBorder: '#D8D8C2',
+    pastelSelectedBg: '#EBEBDB',
+    pastelSelectedBorder: '#B5B597',
+    ariaLabel: 'Incômodo nos Dentes'
+  },
+  {
+    id: 'hotspot-bracos',
+    code: 'BRACOS',
+    label: 'BRAÇOS',
+    category: 'BODY_PART',
+    xPercent: 25,
+    yPercent: 46,
+    radiusPx: 30,
+    pastelBg: '#EDF5EF',
+    pastelBorder: '#BFDCC6',
+    pastelSelectedBg: '#DFEFE3',
+    pastelSelectedBorder: '#8DB896',
+    ariaLabel: 'Incômodo nos Braços'
+  },
+  {
+    id: 'hotspot-barriga',
+    code: 'BARRIGA',
+    label: 'BARRIGA',
+    category: 'BODY_PART',
+    xPercent: 50,
+    yPercent: 48,
+    radiusPx: 36,
+    pastelBg: '#F7F1E6',
+    pastelBorder: '#DECDB8',
+    pastelSelectedBg: '#EFE5D7',
+    pastelSelectedBorder: '#BFA588',
+    ariaLabel: 'Incômodo na Barriga'
+  },
+  {
+    id: 'hotspot-pernas',
+    code: 'PERNAS',
+    label: 'PERNAS',
+    category: 'BODY_PART',
+    xPercent: 50,
+    yPercent: 72,
+    radiusPx: 36,
+    pastelBg: '#EFF0F7',
+    pastelBorder: '#CBD0E8',
+    pastelSelectedBg: '#E2E4F2',
+    pastelSelectedBorder: '#98A1CA',
+    ariaLabel: 'Incômodo nas Pernas'
+  },
+  {
+    id: 'hotspot-pes',
+    code: 'PES',
+    label: 'PÉS',
+    category: 'BODY_PART',
+    xPercent: 50,
+    yPercent: 91,
+    radiusPx: 32,
+    pastelBg: '#EDF5F3',
+    pastelBorder: '#C1DFD8',
+    pastelSelectedBg: '#DCEDE9',
+    pastelSelectedBorder: '#83B8AD',
+    ariaLabel: 'Incômodo nos Pés'
+  }
+];

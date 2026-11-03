@@ -1,0 +1,265 @@
+<section
+  class="relative flex flex-col items-center justify-center p-3 sm:p-5 bg-white/70 rounded-3xl border-2 border-[#D9E3DD] shadow-sm w-full max-w-md mx-auto sensory-fade"
+  aria-label="Meu Corpo: Onde incomoda?">
+  <header class="w-full flex items-center justify-between mb-2 px-1">
+    <h2 class="text-sm sm:text-base font-extrabold tracking-widest text-[#52645F] uppercase">
+      ONDE INCOMODA?
+    </h2>
+    @if (commState.selectedBodyPart()) {
+    <span
+      class="text-xs sm:text-sm font-bold tracking-wider text-[#985A32] bg-[#FAECE0] border border-[#E9CDBD] px-3 py-1 rounded-full uppercase sensory-fade">
+      {{ commState.selectedBodyPart()?.label }}
+      @if (commState.selectedBodyPart()?.hintDetail) {
+      ({{ commState.selectedBodyPart()?.hintDetail }})
+      }
+    </span>
+    } @else {
+    <span class="text-xs font-medium text-[#7C8F8A] uppercase">
+      TOQUE NO CORPO
+    </span>
+    }
+  </header>
+
+  <!-- SVG Silhouette Container com vertical da cabeça ampliado para máximo espaçamento sensorial -->
+  <div
+    class="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[300/525] flex items-center justify-center select-none">
+    <svg viewBox="0 0 300 525" class="w-full h-full drop-shadow-none select-none" xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Silhueta do corpo humano em desenho animado 2D com cabeça ampliada e pontos de calor bem espaçados">
+      <defs>
+        <!-- Ponto de calor suave para partes ativas (Pastel Warm Glow) -->
+        <radialGradient id="heatGlowActive" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#F7C4A5" stop-opacity="0.9" />
+          <stop offset="65%" stop-color="#FCE3D2" stop-opacity="0.6" />
+          <stop offset="100%" stop-color="#FCE3D2" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="heatGlowIdle" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#CADDCF" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#CADDCF" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+
+      <!-- BASE DO CORPO (Ilustração Cartoon 2D Suave e Amigável) -->
+      <!-- Pés -->
+      <!-- Pé Esquerdo -->
+      <ellipse cx="112" cy="488" rx="24" ry="14" fill="#DEEAE2" stroke="#84A792" stroke-width="3.5" />
+      <!-- Pé Direito -->
+      <ellipse cx="188" cy="488" rx="24" ry="14" fill="#DEEAE2" stroke="#84A792" stroke-width="3.5" />
+
+      <!-- Pernas -->
+      <path
+        d="M98 330 L98 480 C98 485 126 485 126 480 L132 345 C136 340 164 340 168 345 L174 480 C174 485 202 485 202 480 L202 330 Z"
+        fill="#E5EFE8" stroke="#84A792" stroke-width="3.5" stroke-linejoin="round" />
+
+      <!-- Tronco e Barriga -->
+      <path
+        d="M82 195 C82 184 105 180 150 180 C195 180 218 184 218 195 L212 330 C212 342 185 348 150 348 C115 348 88 342 88 330 Z"
+        fill="#E8F1EC" stroke="#84A792" stroke-width="3.5" stroke-linejoin="round" />
+
+      <!-- Umbigo cartoon amigável -->
+      <circle cx="150" cy="278" r="2.5" fill="#9FBCA9" />
+
+      <!-- Braço Esquerdo -->
+      <path d="M86 195 C68 205 40 235 38 275 C36 286 52 290 58 280 C66 260 84 232 94 218 Z" fill="#E5EFE8"
+        stroke="#84A792" stroke-width="3.5" stroke-linejoin="round" />
+      <!-- Mão Esquerda -->
+      <circle cx="46" cy="282" r="13" fill="#E8F1EC" stroke="#84A792" stroke-width="3.5" />
+
+      <!-- Braço Direito -->
+      <path d="M214 195 C232 205 260 235 262 275 C264 286 248 290 242 280 C234 260 216 232 206 218 Z" fill="#E5EFE8"
+        stroke="#84A792" stroke-width="3.5" stroke-linejoin="round" />
+      <!-- Mão Direita -->
+      <circle cx="254" cy="282" r="13" fill="#E8F1EC" stroke="#84A792" stroke-width="3.5" />
+
+      <!-- Pescoço -->
+      <rect x="136" y="165" width="28" height="22" rx="7" fill="#E8F1EC" stroke="#84A792" stroke-width="3.5" />
+
+      <!-- CABEÇA AMPLIADA NO VERTICAL (Oval Cartoon Generoso e Acolhedor) -->
+      <ellipse cx="150" cy="96" rx="70" ry="76" fill="#F4F8F5" stroke="#84A792" stroke-width="3.5" />
+
+      <!-- Orelhinhas Cartoon -->
+      <circle cx="88" cy="98" r="9" fill="#E8F1EC" stroke="#84A792" stroke-width="3" />
+      <circle cx="212" cy="98" r="9" fill="#E8F1EC" stroke="#84A792" stroke-width="3" />
+
+      <!-- Cabelo Cartoon Suave -->
+      <path d="M124 24 Q150 12 176 24" stroke="#84A792" stroke-width="3.5" stroke-linecap="round" fill="none" />
+      <path d="M134 18 Q150 7 166 18" stroke="#84A792" stroke-width="3.5" stroke-linecap="round" fill="none" />
+
+      <!-- Olhinhos Calmos bem posicionados -->
+      <path d="M128 88 Q136 82 144 88" stroke="#486050" stroke-width="3" stroke-linecap="round" fill="none" />
+      <path d="M156 88 Q164 82 172 88" stroke="#486050" stroke-width="3" stroke-linecap="round" fill="none" />
+
+      <!-- Bochechinhas Suaves -->
+      <circle cx="120" cy="102" r="7" fill="#F4C7C3" opacity="0.6" />
+      <circle cx="180" cy="102" r="7" fill="#F4C7C3" opacity="0.6" />
+
+      <!-- NARIZ (Indicador cartoon de Nariz Entupido com lenço suave) -->
+      <path d="M148 102 Q150 108 153 106" stroke="#688C75" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      @if (isHotspotSelected('NARIZ')) {
+      <!-- Lenço suave pastel indicando nariz entupido -->
+      <g class="sensory-fade">
+        <path d="M142 118 L158 118 L163 128 L137 128 Z" fill="#D6E6F2" stroke="#89AEC9" stroke-width="2" />
+        <path d="M146 121 Q150 126 154 121" stroke="#89AEC9" stroke-width="1.5" fill="none" />
+      </g>
+      }
+
+      <!-- DENTES / BOCA (Com espaçamento generoso abaixo do nariz) -->
+      <path d="M136 138 Q150 148 164 138" stroke="#486050" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      @if (isHotspotSelected('DENTES')) {
+      <!-- Brilho suave nos dentes -->
+      <g class="sensory-fade">
+        <rect x="143" y="134" width="14" height="7" rx="2" fill="#FFFFFF" stroke="#84A792" stroke-width="1.5" />
+        <line x1="150" y1="134" x2="150" y2="141" stroke="#84A792" stroke-width="1.5" />
+      </g>
+      }
+
+      <!-- ============================================================== -->
+      <!-- PONTOS INTERATIVOS DE CALOR COM ESPAÇAMENTO VERTICAL AMPLIADO   -->
+      <!-- Cabeça (y:52) -> Nariz (y:108) -> Dentes (y:148)                -->
+      <!-- Distância vertical generosa sem qualquer sobreposição tátil!    -->
+      <!-- ============================================================== -->
+
+      <!-- 1. CABEÇA (Testa / Topo da Cabeça) -->
+      <g class="cursor-pointer group sensory-fade" role="button" tabindex="0"
+        [attr.aria-pressed]="isHotspotSelected('CABECAC')" aria-label="Ponto de calor: Cabeça"
+        (click)="selectByCode('CABECAC')" (keydown)="onHotspotKeydown($event, 'CABECAC')">
+        <circle cx="150" cy="52" r="30"
+          [attr.fill]="isHotspotSelected('CABECAC') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('CABECAC') ? '1' : '0.4'" />
+        <circle cx="150" cy="52" r="17" [attr.fill]="isHotspotSelected('CABECAC') ? '#F5C7A9' : '#C8DDD0'"
+          [attr.stroke]="isHotspotSelected('CABECAC') ? '#C9865B' : '#7FA48D'" stroke-width="2.5" />
+        <text x="150" y="56" text-anchor="middle" font-size="9" font-weight="bold" fill="#3D4B46" pointer-events="none">
+          CABEÇA
+        </text>
+      </g>
+
+      <!-- 2. NARIZ (ENTUPIDO) - 56px abaixo da cabeça! -->
+      <g class="cursor-pointer group sensory-fade" role="button" tabindex="0"
+        [attr.aria-pressed]="isHotspotSelected('NARIZ')" aria-label="Ponto de calor: Nariz Entupido"
+        (click)="selectByCode('NARIZ')" (keydown)="onHotspotKeydown($event, 'NARIZ')">
+        <circle cx="150" cy="108" r="24"
+          [attr.fill]="isHotspotSelected('NARIZ') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('NARIZ') ? '1' : '0.4'" />
+        <circle cx="150" cy="108" r="15" [attr.fill]="isHotspotSelected('NARIZ') ? '#F5C7A9' : '#C8DDD0'"
+          [attr.stroke]="isHotspotSelected('NARIZ') ? '#C9865B' : '#7FA48D'" stroke-width="2" />
+        <text x="150" y="112" text-anchor="middle" font-size="8" font-weight="bold" fill="#3D4B46"
+          pointer-events="none">
+          NARIZ
+        </text>
+      </g>
+
+      <!-- 3. DENTES - 40px abaixo do nariz! -->
+      <g class="cursor-pointer group sensory-fade" role="button" tabindex="0"
+        [attr.aria-pressed]="isHotspotSelected('DENTES')" aria-label="Ponto de calor: Dentes"
+        (click)="selectByCode('DENTES')" (keydown)="onHotspotKeydown($event, 'DENTES')">
+        <circle cx="150" cy="148" r="24"
+          [attr.fill]="isHotspotSelected('DENTES') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('DENTES') ? '1' : '0.4'" />
+        <circle cx="150" cy="148" r="15" [attr.fill]="isHotspotSelected('DENTES') ? '#F5C7A9' : '#C8DDD0'"
+          [attr.stroke]="isHotspotSelected('DENTES') ? '#C9865B' : '#7FA48D'" stroke-width="2" />
+        <text x="150" y="152" text-anchor="middle" font-size="8" font-weight="bold" fill="#3D4B46"
+          pointer-events="none">
+          DENTES
+        </text>
+      </g>
+
+      <!-- 4. BRAÇOS (Área Esquerda e Direita) -->
+      <g class="cursor-pointer group sensory-fade" role="button" tabindex="0"
+        [attr.aria-pressed]="isHotspotSelected('BRACOS')" aria-label="Ponto de calor: Braços"
+        (click)="selectByCode('BRACOS')" (keydown)="onHotspotKeydown($event, 'BRACOS')">
+        <!-- Braço Esquerdo -->
+        <circle cx="56" cy="245" r="26"
+          [attr.fill]="isHotspotSelected('BRACOS') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('BRACOS') ? '1' : '0.4'" />
+        <circle cx="56" cy="245" r="15" [attr.fill]="isHotspotSelected('BRACOS') ? '#F5C7A9' : '#C8DDD0'"
+          [attr.stroke]="isHotspotSelected('BRACOS') ? '#C9865B' : '#7FA48D'" stroke-width="2.5" />
+        <text x="56" y="249" text-anchor="middle" font-size="8" font-weight="bold" fill="#3D4B46" pointer-events="none">
+          BRAÇO
+        </text>
+
+        <!-- Braço Direito -->
+        <circle cx="244" cy="245" r="26"
+          [attr.fill]="isHotspotSelected('BRACOS') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('BRACOS') ? '1' : '0.4'" />
+        <circle cx="244" cy="245" r="15" [attr.fill]="isHotspotSelected('BRACOS') ? '#F5C7A9' : '#C8DDD0'"
+          [attr.stroke]="isHotspotSelected('BRACOS') ? '#C9865B' : '#7FA48D'" stroke-width="2.5" />
+        <text x="244" y="249" text-anchor="middle" font-size="8" font-weight="bold" fill="#3D4B46"
+          pointer-events="none">
+          BRAÇO
+        </text>
+      </g>
+
+      <!-- 5. BARRIGA -->
+      <g class="cursor-pointer group sensory-fade" role="button" tabindex="0"
+        [attr.aria-pressed]="isHotspotSelected('BARRIGA')" aria-label="Ponto de calor: Barriga"
+        (click)="selectByCode('BARRIGA')" (keydown)="onHotspotKeydown($event, 'BARRIGA')">
+        <circle cx="150" cy="255" r="34"
+          [attr.fill]="isHotspotSelected('BARRIGA') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('BARRIGA') ? '1' : '0.4'" />
+        <circle cx="150" cy="255" r="19" [attr.fill]="isHotspotSelected('BARRIGA') ? '#F5C7A9' : '#C8DDD0'"
+          [attr.stroke]="isHotspotSelected('BARRIGA') ? '#C9865B' : '#7FA48D'" stroke-width="2.5" />
+        <text x="150" y="259" text-anchor="middle" font-size="9" font-weight="bold" fill="#3D4B46"
+          pointer-events="none">
+          BARRIGA
+        </text>
+      </g>
+
+      <!-- 6. PERNAS -->
+      <g class="cursor-pointer group sensory-fade" role="button" tabindex="0"
+        [attr.aria-pressed]="isHotspotSelected('PERNAS')" aria-label="Ponto de calor: Pernas"
+        (click)="selectByCode('PERNAS')" (keydown)="onHotspotKeydown($event, 'PERNAS')">
+        <circle cx="114" cy="390" r="26"
+          [attr.fill]="isHotspotSelected('PERNAS') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('PERNAS') ? '1' : '0.4'" />
+        <circle cx="186" cy="390" r="26"
+          [attr.fill]="isHotspotSelected('PERNAS') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('PERNAS') ? '1' : '0.4'" />
+
+        <circle cx="150" cy="390" r="20" [attr.fill]="isHotspotSelected('PERNAS') ? '#F5C7A9' : '#C8DDD0'"
+          [attr.stroke]="isHotspotSelected('PERNAS') ? '#C9865B' : '#7FA48D'" stroke-width="2.5" />
+        <text x="150" y="394" text-anchor="middle" font-size="9" font-weight="bold" fill="#3D4B46"
+          pointer-events="none">
+          PERNAS
+        </text>
+      </g>
+
+      <!-- 7. PÉS -->
+      <g class="cursor-pointer group sensory-fade" role="button" tabindex="0"
+        [attr.aria-pressed]="isHotspotSelected('PES')" aria-label="Ponto de calor: Pés" (click)="selectByCode('PES')"
+        (keydown)="onHotspotKeydown($event, 'PES')">
+        <circle cx="150" cy="485" r="30"
+          [attr.fill]="isHotspotSelected('PES') ? 'url(#heatGlowActive)' : 'url(#heatGlowIdle)'"
+          [attr.opacity]="isHotspotSelected('PES') ? '1' : '0.4'" />
+        <circle cx="150" cy="485" r="17" [attr.fill]="isHotspotSelected('PES') ? '#F5C7A9' : '#C8DDD0'"
+          [attr.stroke]="isHotspotSelected('PES') ? '#C9865B' : '#7FA48D'" stroke-width="2.5" />
+        <text x="150" y="489" text-anchor="middle" font-size="9" font-weight="bold" fill="#3D4B46"
+          pointer-events="none">
+          PÉS
+        </text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Botões de Acesso Rápido Tátil Suave abaixo da silhueta (Touch target >= 48px) -->
+  <footer class="w-full mt-3 pt-3 border-t border-[#E4ECE7]">
+    <div class="text-[11px] font-bold text-[#6D7F7A] tracking-wider uppercase mb-1.5 text-center">
+      PONTOS DO CORPO (TOQUE RÁPIDO)
+    </div>
+    <div class="flex flex-wrap justify-center gap-1.5">
+      @for (hotspot of commState.bodyHotspots(); track hotspot.id) {
+      <button type="button" (click)="selectByCode(hotspot.code)"
+        class="min-h-[48px] px-3 py-2 rounded-xl text-xs font-bold tracking-wider uppercase border sensory-fade focus:outline-none transition-all flex items-center justify-center cursor-pointer"
+        [style.backgroundColor]="isHotspotSelected(hotspot.code) ? hotspot.pastelSelectedBg : hotspot.pastelBg"
+        [style.borderColor]="isHotspotSelected(hotspot.code) ? hotspot.pastelSelectedBorder : hotspot.pastelBorder"
+        [class.border-2]="isHotspotSelected(hotspot.code)" [class.ring-2]="isHotspotSelected(hotspot.code)"
+        [class.ring-opacity-40]="isHotspotSelected(hotspot.code)" [style.--tw-ring-color]="hotspot.pastelSelectedBorder"
+        [attr.aria-pressed]="isHotspotSelected(hotspot.code)">
+        {{ hotspot.label }}
+        @if (hotspot.hintDetail) {
+        <span class="ml-1 text-[10px] opacity-80">({{ hotspot.hintDetail }})</span>
+        }
+      </button>
+      }
+    </div>
+  </footer>
+</section>

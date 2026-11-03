@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="112" fill="#EBF2ED"/>
+  <!-- Gentle speech bubble -->
+  <path d="M106 133 C106 101 138 74 256 74 C374 74 406 101 406 133 L406 293 C406 325 374 352 256 352 C218 352 192 360 150 400 C154 378 160 360 160 352 C122 352 106 325 106 293 Z" 
+        fill="#C8DED0" stroke="#7A9A84" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Calming eyes -->
+  <path d="M192 218 Q214 196 235 218" stroke="#486050" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M277 218 Q298 196 320 218" stroke="#486050" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <!-- Soft happy cheeks -->
+  <circle cx="182" cy="250" r="16" fill="#F4C7C3" opacity="0.65"/>
+  <circle cx="330" cy="250" r="16" fill="#F4C7C3" opacity="0.65"/>
+  <!-- Gentle smile -->
+  <path d="M230 262 Q256 284 282 262" stroke="#486050" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Small soothing heart -->
+  <path d="M256 132 C256 122 244 112 232 120 C222 128 232 144 256 160 C280 144 290 128 280 120 C268 112 256 122 256 132 Z" fill="#D3A5A5"/>
+</svg>
+

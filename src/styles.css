@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #F6F8F5;
+    --text-primary: #384643;
+    --text-secondary: #5C6E6A;
+    --border-soft: #D7E2DC;
+    --card-surface: #FFFFFF;
+    --card-selected-border: #7EA693;
+    --card-selected-bg: #EAF3EE;
+    --touch-min-size: 48px;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    user-select: none;
+    touch-action: manipulation;
+  }
+}
+
+/* Sensory-friendly gentle transitions (opacity and soft color fade only, NO movement or zoom jolts) */
+.sensory-fade {
+  transition: opacity 250ms ease-in-out, background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+/* Card focus and active tactile visual cues without harshness */
+.card-touch-target {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Scrollbar styling for smooth, unobtrusive visual rest */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EEF3F0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4D6CC;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #AFC6BA;
+}
