@@ -15,7 +15,7 @@ describe('CommunicationStateService', () => {
   it('deve inicializar com listas de dados e sem itens selecionados', () => {
     expect(service.emotions().length).toBe(6);
     expect(service.bodyHotspots().length).toBe(7);
-    expect(service.systemicStates().length).toBe(2);
+    expect(service.systemicStates().length).toBe(9);
     expect(service.selectedEmotion()).toBeNull();
     expect(service.selectedBodyPart()).toBeNull();
     expect(service.selectedSystemicState()).toBeNull();
@@ -46,13 +46,18 @@ describe('CommunicationStateService', () => {
     expect(service.hasActiveSelection()).toBe(true);
   });
 
-  it('deve selecionar estado sistêmico (FOME/SONO) e compor mensagem', () => {
-    const fome = SYSTEMIC_STATES_DATA.find(s => s.code === 'FOME')!;
-    service.selectSystemicState(fome);
+  it('deve selecionar estado sistêmico (FOME/XIXI/DOR/BARULHO) e compor mensagem', () => {
+    const xixi = SYSTEMIC_STATES_DATA.find(s => s.code === 'XIXI')!;
+    service.selectSystemicState(xixi);
 
-    expect(service.selectedSystemicState()?.code).toBe('FOME');
-    expect(service.composedMessage()).toBe('ESTADO: FOME');
+    expect(service.selectedSystemicState()?.code).toBe('XIXI');
+    expect(service.composedMessage()).toBe('ESTADO: XIXI');
     expect(service.hasActiveSelection()).toBe(true);
+
+    const barulho = SYSTEMIC_STATES_DATA.find(s => s.code === 'BARULHO')!;
+    service.selectSystemicState(barulho);
+    expect(service.selectedSystemicState()?.code).toBe('BARULHO');
+    expect(service.composedMessage()).toBe('ESTADO: SENSIBILIDADE AO BARULHO');
   });
 
   it('deve limpar todas as seleções ao chamar clearAllSelections', () => {
@@ -69,4 +74,3 @@ describe('CommunicationStateService', () => {
     expect(service.composedMessage()).toBe('TOQUE EM UMA IMAGEM');
   });
 });
-
